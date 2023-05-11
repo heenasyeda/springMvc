@@ -3,9 +3,9 @@
 
  
 <h1>Add New Product</h1>
-<form:form method="POST" action="/savebranch">
+<form:form method="POST" action="/BikeServiceManagements/savebranch">
 	<table>
-
+<%-- 
 		<tr>
 
 			<td>Branch ID:</td>
@@ -13,16 +13,15 @@
 			<td><form:hidden type="text" path="branchID" /></td>
 
 		</tr>
-
+ --%>
 		<tr>
 
 			<td>Branch Name:</td>
 
-			<td><form:input type="text" path="branchName" /></td>
+			<td><form:input type="text" path="name" /></td>
 
 		</tr>
 
-		<tr>
 
 			<td>Address:</td>
 

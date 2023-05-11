@@ -26,12 +26,6 @@ public class BranchesDAO {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
-//	public void addBranch(Branches branches) {
-//		String sql = "insert into branches (BranchID,Name,Address,Contact) values (?,?,?,?)";
-//		jdbcTemplate.update(sql, branches.getBranchID(), branches.getName(), branches.getAddress(),
-//				branches.getContact());
-//
-//	}
 	private class BranchesMapper implements RowMapper<Branches> {
 	    public Branches mapRow(ResultSet rs, int rowNum) throws SQLException {
 	        Branches branches = new Branches();

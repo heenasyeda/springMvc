@@ -10,19 +10,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Edit Bike</h1>
+	<h1>Edit Branch</h1>
 
 	<form:form method="POST" action="/BikeServiceManagements/editsavebranch" >
 	<table>
 		
 		
-		<tr>
+		 <tr>
 			<td>Branch ID:</td>
-			<td><form:hidden type="text" path="branchID" /></td>
-		</tr>
+			<td><form:input type="text" path="BranchID" /></td>
+		</tr>  
 		<tr>
 			<td>Branch Name:</td>
-			<td><form:input type="text" path="branchName" /></td>
+			<td><form:input type="text" path="name" /></td>
 		</tr>
 		<tr>
 			<td>Address:</td>

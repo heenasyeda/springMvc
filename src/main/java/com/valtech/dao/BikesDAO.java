@@ -52,7 +52,7 @@ public class BikesDAO {
 	    		e.setServiceManagerID(rs.getInt(6));
 	    		e.setStatus(rs.getString(7));
 	    		
-	    		System.out.println(e);
+	    	
 	    	
 	    	return e;
 

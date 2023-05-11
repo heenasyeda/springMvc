@@ -35,7 +35,8 @@ public class BikesController {
 
 	}
 
-	@RequestMapping(value = "/editbike/{id}")
+	
+	@RequestMapping(value = "/editBike/{id}")
 	public String edit(@PathVariable int id, Model m) {
 		Bikes bikes= bikesDAO.getBikeById(id);
 		m.addAttribute("command", bikes);
@@ -49,7 +50,10 @@ public class BikesController {
 	    return "redirect:/viewBikesList";
 
 	    }
-	    
+	
+	
+	
+	 
 	    
 	    @RequestMapping(value="/save",method = RequestMethod.POST)    
 	    public String save(@ModelAttribute("bikes") Bikes bikes){  		 	
