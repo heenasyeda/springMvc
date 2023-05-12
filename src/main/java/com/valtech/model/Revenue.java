@@ -2,60 +2,74 @@ package com.valtech.model;
 
 public class Revenue {
 	
-	private int RevenueID;
-	private int BranchID;
-	private int RevenueAmount;
-	private String TimePeriod;
+	private int revenueID;
+	private int branchID;
+	private int revenueAmount;
+	private String timePeriod;
+	private int serviceManagerID;
 	
 	public Revenue() {
 		super();
 	}
 
-	public Revenue(int revenueID, int branchID, int revenueAmount, String timePeriod) {
+	public Revenue(int revenueID, int branchID, int revenueAmount, String timePeriod, int serviceManagerID) {
 		super();
-		RevenueID = revenueID;
-		BranchID = branchID;
-		RevenueAmount = revenueAmount;
-		TimePeriod = timePeriod;
+		this.revenueID = revenueID;
+		this.branchID = branchID;
+		this.revenueAmount = revenueAmount;
+		this.timePeriod = timePeriod;
+		this.serviceManagerID = serviceManagerID;
 	}
 
 	public int getRevenueID() {
-		return RevenueID;
+		return revenueID;
 	}
 
 	public void setRevenueID(int revenueID) {
-		RevenueID = revenueID;
+		this.revenueID = revenueID;
 	}
 
 	public int getBranchID() {
-		return BranchID;
+		return branchID;
 	}
 
 	public void setBranchID(int branchID) {
-		BranchID = branchID;
+		this.branchID = branchID;
 	}
 
 	public int getRevenueAmount() {
-		return RevenueAmount;
+		return revenueAmount;
 	}
 
 	public void setRevenueAmount(int revenueAmount) {
-		RevenueAmount = revenueAmount;
+		this.revenueAmount = revenueAmount;
 	}
 
 	public String getTimePeriod() {
-		return TimePeriod;
+		return timePeriod;
 	}
 
 	public void setTimePeriod(String timePeriod) {
-		TimePeriod = timePeriod;
+		this.timePeriod = timePeriod;
+	}
+
+	public int getServiceManagerID() {
+		return serviceManagerID;
+	}
+
+	public void setServiceManagerID(int serviceManagerID) {
+		this.serviceManagerID = serviceManagerID;
 	}
 
 	@Override
 	public String toString() {
-		return "Revenue [RevenueID=" + RevenueID + ", BranchID=" + BranchID + ", RevenueAmount=" + RevenueAmount
-				+ ", TimePeriod=" + TimePeriod + "]";
+		return "Revenue [revenueID=" + revenueID + ", branchID=" + branchID + ", revenueAmount=" + revenueAmount
+				+ ", timePeriod=" + timePeriod + ", serviceManagerID=" + serviceManagerID + "]";
 	}
+	
+	
+
+	
 	
 	
 	

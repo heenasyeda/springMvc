@@ -75,6 +75,20 @@ public class UserDAO {
 	    	return user;
 
 	    	}
+	    public User findByEmail(String email) {
+	        String sql = "SELECT * FROM user WHERE email = ?";
+	        RowMapper<User> rowMapper = new BeanPropertyRowMapper<User>(User.class);
+	        return jdbcTemplate.queryForObject(sql, rowMapper, email);
+	    }
+
+	    public User findByEmailAndPassword(String email, String password) {
+	        String sql = "SELECT * FROM user WHERE email = ? AND password = ?";
+	        RowMapper<User> rowMapper = new BeanPropertyRowMapper<User>(User.class);
+	        return jdbcTemplate.queryForObject(sql, rowMapper, email, password);
+	    }
+	   
+	    
+	    
 	   
 	}
 

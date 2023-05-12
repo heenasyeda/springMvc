@@ -22,7 +22,6 @@
 	</bean>
 
 	<bean id="userDAO" class="com.valtech.dao.UserDAO"></bean>
-	
 	<bean id="revenueDAO" class="com.valtech.dao.RevenueDAO"></bean>
 	<bean id="branchesDAO" class="com.valtech.dao.BranchesDAO"></bean>
 	<bean id="bikesDAO" class="com.valtech.dao.BikesDAO"></bean>  
