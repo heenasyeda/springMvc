@@ -11,13 +11,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.valtech.dao.BikesDAO;
+import com.valtech.dao.ServiceManagersDAO;
 import com.valtech.model.Bikes;
+import com.valtech.model.ServiceManagers;
 
 @Controller
 public class BikesController {
 
 	@Autowired
 	BikesDAO bikesDAO;
+	
+	
+	@Autowired
+	 private ServiceManagersDAO serviceManagersDAO;
 
 	//for viewing bike list
 	@RequestMapping("/viewBikesList")
@@ -50,10 +56,6 @@ public class BikesController {
 	    return "redirect:/viewBikesList";
 
 	    }
-	
-	
-	
-	 
 	    
 	    @RequestMapping(value="/save",method = RequestMethod.POST)    
 	    public String save(@ModelAttribute("bikes") Bikes bikes){  		 	
@@ -68,8 +70,18 @@ public class BikesController {
 	        return "addBikes";   
 	    }    
 	   
+	    @RequestMapping("/viewBikes/{serviceManagerId}")
+	    public String viewBikesUnderServiceManager(@PathVariable int serviceManagerId, Model model) {
+	        ServiceManagers serviceManager = serviceManagersDAO.getServiceManagerById(serviceManagerId);		
+	        List<Bikes> bikes = bikesDAO.getBikesByServiceManagerId(serviceManagerId);
+	        model.addAttribute("serviceManager", serviceManager);
+	        model.addAttribute("bikes", bikes);
+	        return "viewBikes";
+	    }
 	
 
-	
+
+	   
+
 
 }

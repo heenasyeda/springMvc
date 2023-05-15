@@ -23,7 +23,6 @@
 <td>${list.serviceDetails}</td>
 <td>${list.serviceManagerID}</td>
 <td>${list.status}</td>
-
 <td><a href="editBike/${list.bikeID}">Edit</a></td>
 <td><a href="deletebike/${list.bikeID}">Delete</a></td>
 </tr>

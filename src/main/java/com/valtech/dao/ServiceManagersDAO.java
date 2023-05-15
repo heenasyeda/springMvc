@@ -18,6 +18,7 @@ public class ServiceManagersDAO {
 	
 	@Autowired
 	JdbcTemplate jdbcTemplate;
+
 	
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
@@ -77,14 +78,14 @@ public class ServiceManagersDAO {
 		}
 	    
 	    
-	    public ServiceManagers getServiceManagerById(int id) {
+	    public ServiceManagers getServiceManagerById(int ServiceManagerID ) {
 	        String sql = "SELECT * FROM ServiceManagers WHERE ServiceManagerID = ?";
-	        ServiceManagers	serviceManagers=jdbcTemplate.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<>(ServiceManagers.class));
+	        ServiceManagers	serviceManagers=jdbcTemplate.queryForObject(sql, new Object[]{ServiceManagerID}, new BeanPropertyRowMapper<>(ServiceManagers.class));
 				return serviceManagers;
 	    }
 	 
 		
-	    
+
 	    
 	  
 }

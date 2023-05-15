@@ -36,11 +36,8 @@ public class BikesDAO {
 	
 	
 	    public List<Bikes> getAllBikes(){
-
 	    	return jdbcTemplate.query("select * from Bikes",new RowMapper<Bikes>(){
-
 	    	public Bikes mapRow(ResultSet rs, int row) throws SQLException {
-
 	    		Bikes e=new Bikes();
 	    		e.setBikeID(rs.getInt(1));
 	    		e.setOwnerName(rs.getString(2));
@@ -48,15 +45,9 @@ public class BikesDAO {
 	    		e.setModel(rs.getString(4));
 	    		e.setServiceDetails(rs.getString(5));
 	    		e.setServiceManagerID(rs.getInt(6));
-	    		e.setStatus(rs.getString(7));
-	    		
-	    	
-	    	
-	    	return e;
-
-	    	
+	    		e.setStatus(rs.getString(7));    		
+	    	return e;	
 	    	}
-
 	    	});
 	    }
 	    	
@@ -72,7 +63,7 @@ public class BikesDAO {
 	        String sql = "DELETE FROM Bikes WHERE BikeID=?";
 	        return jdbcTemplate.update(sql, bikeID);
 	    
-	}
+    	}
 	    
 	    public int save(Bikes bikes){
 			String sql = ("insert into Bikes (BikeID,OwnerName,OwnerContact,Model,ServiceDetails,ServiceManagerID,Status) values (?,?,?,?,?,?,?)");
@@ -89,9 +80,27 @@ public class BikesDAO {
 	    }
 	 
 		
-	    
-	   
 
-	   
+	    
+	    public List<Bikes> getBikesByServiceManagerId(int serviceManagerId) {
+	        String sql = "SELECT * FROM bikes WHERE ServiceManagerID = ?";
+	        return jdbcTemplate.query(sql, new Object[] { serviceManagerId }, new BikesRowMapper());
+	    }
+	    
+	    class BikesRowMapper implements RowMapper<Bikes> {
+	        @Override
+	        public Bikes mapRow(ResultSet rs, int rowNum) throws SQLException {
+	            Bikes bikes = new Bikes();
+	            bikes.setBikeID(rs.getInt(1));
+	            bikes.setOwnerName(rs.getString(2));
+	            bikes.setOwnerContact(rs.getString(3));
+	            bikes.setModel(rs.getString(4));
+	            bikes.setServiceDetails(rs.getString(5));
+	            bikes.setServiceManagerID(rs.getInt(6));
+	            bikes.setStatus(rs.getString(7));
+	            return bikes;
+	        }
+
+	    }
 }
 

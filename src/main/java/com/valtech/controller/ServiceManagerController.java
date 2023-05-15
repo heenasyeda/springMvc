@@ -3,6 +3,7 @@ package com.valtech.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,7 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.valtech.dao.BikesDAO;
 import com.valtech.dao.ServiceManagersDAO;
+import com.valtech.model.Bikes;
 import com.valtech.model.ServiceManagers;
 
 
@@ -20,6 +23,9 @@ public class ServiceManagerController {
 	
 	@Autowired
 	ServiceManagersDAO serviceManagersDAO;
+	
+	@Autowired
+	BikesDAO bikesDAO;
 	
 	   //for viewing servicemanager list
 		@RequestMapping("/viewService")
@@ -63,6 +69,7 @@ public class ServiceManagerController {
 	        m.addAttribute("command", new ServiceManagers());  
 	        return "addService";   
 	    }  
-	
+	    
 
+	   
 }

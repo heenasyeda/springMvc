@@ -37,12 +37,12 @@
             </c:forEach>
         </tbody>
     </table>
-    
+   <hr> 
     
     <h3>Total Revenue</h3>
     <p>${totalRevenue}</p>
     
-    
+    <hr>
     
     <h3>Revenue By Service Manager</h3>
     <table>
@@ -61,5 +61,6 @@
             </c:forEach>
         </tbody>
     </table>
+    <a href="viewService">back</a>
 </body>
 </html>
