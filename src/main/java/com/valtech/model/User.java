@@ -2,7 +2,7 @@ package com.valtech.model;
 
 public class User {
 	private int userId;
-	private String username;
+	private String userName;
 	private String password;
 	private String email;
 	private String role;
@@ -10,7 +10,7 @@ public class User {
 	public User(int userId, String username, String password, String email, String role) {
 		super();
 		this.userId = userId;
-		this.username = username;
+		this.userName = username;
 		this.password = password;
 		this.email = email;
 		this.role = role;
@@ -29,11 +29,11 @@ public class User {
 	}
 
 	public String getUsername() {
-		return username;
+		return userName;
 	}
 
 	public void setUsername(String username) {
-		this.username = username;
+		this.userName = username;
 	}
 
 	public String getPassword() {
@@ -62,7 +62,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", username=" + username + ", password=" + password + ", email=" + email
+		return "User [userId=" + userId + ", username=" + userName + ", password=" + password + ", email=" + email
 				+ ", role=" + role + "]";
 	}
 	

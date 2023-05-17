@@ -61,7 +61,8 @@
 <body>
 	<h1>Add New Bikes</h1>
 
-	<form:form method="post" action="save">
+<form:form method="post" action="saveManager">
+
 
 		<label for="bikeID">Bike ID:</label>
 		<form:input path="bikeID" id="bikeID" />
@@ -80,6 +81,8 @@
 
 		<label for="serviceManagerID">Service Manager ID:</label>
 		<form:input path="serviceManagerID" id="serviceManagerID" />
+
+
 
 		<label for="status">Status:</label>
 		<form:input path="status" id="status" />

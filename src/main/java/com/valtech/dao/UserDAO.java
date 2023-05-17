@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -59,7 +60,7 @@ public class UserDAO {
 
 	    // Delete a user by ID
 	    public void deleteUser(int userId) {
-	        String sql = "DELETE FROM User  WHERE userId = ?";
+	        String sql = "DELETE FROM user  WHERE   userId = ?";
 	        jdbcTemplate.update(sql, userId);
 	    }
 	 
@@ -75,21 +76,34 @@ public class UserDAO {
 	    	return user;
 
 	    	}
+			/*
+			 * public User findByEmail(String email) { String sql =
+			 * "SELECT * FROM user WHERE   userId = 5"; try { RowMapper<User> rowMapper =
+			 * new BeanPropertyRowMapper<User>(User.class); return
+			 * jdbcTemplate.queryForObject(sql, rowMapper, email); } catch
+			 * (EmptyResultDataAccessException e) { // TODO: handle exception return null; }
+			 * }
+			 */ 
+	    
 	    public User findByEmail(String email) {
-	        String sql = "SELECT * FROM user WHERE email = ?";
+	    	try {
+	        String sql = "SELECT * FROM User WHERE Email = ?";
 	        RowMapper<User> rowMapper = new BeanPropertyRowMapper<User>(User.class);
 	        return jdbcTemplate.queryForObject(sql, rowMapper, email);
-	    }
+	    	}
+	    	catch (EmptyResultDataAccessException e) {
+				// TODO: handle exception
+	    		return null;
+			}
+	    } 
+	    
+	    public User findUserByMailAndPassword(String email,String password) {
+	    	 String sql="select * from user where email=? AND password=?";
+	    	 RowMapper<User> rowMapper = new BeanPropertyRowMapper<User>(User.class);
+	    	 return jdbcTemplate.queryForObject(sql, rowMapper,email,password);
+	    	
 
-	    public User findByEmailAndPassword(String email, String password) {
-	        String sql = "SELECT * FROM user WHERE email = ? AND password = ?";
-	        RowMapper<User> rowMapper = new BeanPropertyRowMapper<User>(User.class);
-	        return jdbcTemplate.queryForObject(sql, rowMapper, email, password);
-	    }
-	   
-	    
-	    
-	   
+	    	}
 	}
 
 

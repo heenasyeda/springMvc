@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -59,9 +60,14 @@ public class BikesDAO {
 	    
 
 	   
-	    public int deleteBike(int bikeID) {
+	    public void deleteBike(int bikeID) {
+	    	try {
 	        String sql = "DELETE FROM Bikes WHERE BikeID=?";
-	        return jdbcTemplate.update(sql, bikeID);
+	         jdbcTemplate.update(sql, bikeID);
+	    	}
+	    	catch (EmptyResultDataAccessException e) {
+				// TODO: handle exception
+			}
 	    
     	}
 	    
@@ -79,8 +85,8 @@ public class BikesDAO {
 				return bikes;
 	    }
 	 
-		
-
+	    
+	   
 	    
 	    public List<Bikes> getBikesByServiceManagerId(int serviceManagerId) {
 	        String sql = "SELECT * FROM bikes WHERE ServiceManagerID = ?";

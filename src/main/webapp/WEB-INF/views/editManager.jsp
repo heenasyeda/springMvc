@@ -1,8 +1,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,7 +60,7 @@
 <body>
 	<h1>Add New Bikes</h1>
 
-	<form:form method="post" action="save">
+	<form:form method="post" action="editsave">
 
 		<label for="bikeID">Bike ID:</label>
 		<form:input path="bikeID" id="bikeID" />

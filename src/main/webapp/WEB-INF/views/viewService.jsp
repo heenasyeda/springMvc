@@ -44,6 +44,12 @@
 			margin-top: 10px;
 			font-size: 16px;
 		}
+		.login-link {
+			display: block;
+			text-align: center;
+			margin-top: 10px;
+			font-size: 16px;
+		}
 	</style>
 </head>
 <body>
@@ -56,6 +62,9 @@
 				<th>Email</th>
 				 <th>Contact</th>
 				<th>Branch ID</th>
+				
+				<th>Role</th>
+				<th>Password</th>
 				<th>Bike Details</th>
 				<th>Edit</th>
 				<th>Delete</th>
@@ -69,6 +78,9 @@
 					<td>${serviceManager.email}</td>
 					<td>${serviceManager.contact}</td>
 					<td>${serviceManager.branchID}</td>
+					<td>${serviceManager.role}</td>
+					<td>${serviceManager.password}</td>
+					
 					 <td><a href="viewBikes/${serviceManager.serviceManagerID}">Bike Details</a></td> 
 					<td><a href="editService/${serviceManager.serviceManagerID}">Edit</a></td>
 					<td><a href="deleteService/${serviceManager.serviceManagerID}">Delete</a></td>
@@ -79,5 +91,6 @@
 
 	<a href="addService" class="add-link">Add New Service Manager</a>
 	<a href="revenue" class="revenue-link">Check Revenue</a>
+	<a href="login" class="login-link"> Logout</a>
 </body>
 </html>

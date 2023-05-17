@@ -40,6 +40,15 @@ public class BikesController {
 		return "redirect:/viewBikesList";
 
 	}
+	
+
+	@RequestMapping(value = "serviceManagers/deletebike/{id}", method = RequestMethod.GET)
+	public String delete1(@PathVariable int id,@ModelAttribute("bikes") Bikes bikes) {
+		Bikes b= bikesDAO.getBikeById(id);
+		bikesDAO.deleteBike(id);
+		return "redirect:/serviceManagers/" +b.getServiceManagerID();
+
+	}
 
 	
 	@RequestMapping(value = "/editBike/{id}")
@@ -49,6 +58,14 @@ public class BikesController {
 		return "editBike";
 
 	}
+	@RequestMapping(value = "serviceManagers/editManager/{id}")
+	public String edit1(@PathVariable int id, Model m) {
+		Bikes bikes= bikesDAO.getBikeById(id);
+		m.addAttribute("command", bikes);
+		return "editManager";
+
+	}
+
 	
 	    @RequestMapping(value ="/editsave",method = RequestMethod.POST)
 	    public String editsave(@ModelAttribute("bikes") Bikes bikes){
@@ -57,18 +74,42 @@ public class BikesController {
 
 	    }
 	    
+	    @RequestMapping(value ="/serviceManagers/editManager/editsave",method = RequestMethod.POST)
+	    public String editsave1(@ModelAttribute("bikes") Bikes bikes){
+	    bikesDAO.updateBike(bikes);
+	    return "redirect:/serviceManagers/" + bikes.getServiceManagerID();
+
+	    }
+	    
 	    @RequestMapping(value="/save",method = RequestMethod.POST)    
 	    public String save(@ModelAttribute("bikes") Bikes bikes){  		 	
 	        bikesDAO.save(bikes); 	       
 	        return "redirect:/viewBikesList";//will redirect to view bike request mapping    
-	    }   
-	 
+	    }  
+	    
+ 
+	  
+	    @RequestMapping(value = "/serviceManagers/saveManager", method = RequestMethod.POST)    
+	    public String save1(@ModelAttribute("bikes") Bikes bikes) {  
+	        bikesDAO.save(bikes);       
+	        return "redirect:/serviceManagers/"+bikes.getServiceManagerID(); 
+	    }
+        
 	
 	    @RequestMapping("/addBikes")    
 	    public String showform(Model m){    
 	        m.addAttribute("command", new Bikes());  
 	        return "addBikes";   
-	    }    
+	    }
+	    
+    
+	    
+	    @RequestMapping("serviceManagers/addManager")    
+	    public String showform2(Model m){    
+	        m.addAttribute("command", new Bikes());  
+	        return "addManager";   
+	    }  
+	     
 	   
 	    @RequestMapping("/viewBikes/{serviceManagerId}")
 	    public String viewBikesUnderServiceManager(@PathVariable int serviceManagerId, Model model) {
@@ -79,7 +120,16 @@ public class BikesController {
 	        return "viewBikes";
 	    }
 	
-
+	    @RequestMapping("/serviceManagers/{serviceManagerId}")
+	    public String viewBikesUnderServiceManagers(@PathVariable int serviceManagerId, Model model) {
+	        ServiceManagers serviceManager = serviceManagersDAO.getServiceManagerById(serviceManagerId);		
+	        List<Bikes> bikes = bikesDAO.getBikesByServiceManagerId(serviceManagerId);
+	        model.addAttribute("serviceManager", serviceManager);
+	        model.addAttribute("bikes", bikes);
+	        return "serviceManagers";
+	    }
+	
+	   
 
 	   
 

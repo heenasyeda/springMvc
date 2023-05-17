@@ -19,7 +19,7 @@ public class UserController {
 	    @Autowired
 	    private UserDAO userDAO;
 
-	    // list of user manager
+	    // list of user 
 	    @RequestMapping("/UserList")
 	    public String getAllUsers(Model m) {
 	        List<User> list = userDAO.getUsers();
@@ -35,7 +35,7 @@ public class UserController {
 	            return "addUser"; 
 	        }
 	      
-	      // deleteing the user manager
+	      // deleteing the user 
 	      @RequestMapping(value = "/deleteuser/{id}", method = RequestMethod.GET)
 	      public String delete(@PathVariable int id) {
 	          userDAO.deleteUser(id);
@@ -56,15 +56,11 @@ public class UserController {
 	          return "redirect:/UserList";
 	      }
 	      
-	      
-
-	      
 
 	      @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
 	      public String save(@ModelAttribute("user") User user) {
 	          userDAO.createUser(user);
-	          return "redirect:/UserList";// will redirect to viewemp request mapping
-
+	          return "redirect:/UserList";
 	      }
 	     
 	  	

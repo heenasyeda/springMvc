@@ -7,6 +7,43 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+		table {
+			border-collapse: collapse;
+			width: 70%;
+			margin: 0 auto;
+		}
+		th, td {
+			padding: 10px;
+			text-align: center;
+			border: 1px solid black;
+		}
+		th {
+			background-color: #008CBA;
+			color: #FFF;
+		}
+		td a {
+			color: #008CBA;
+			text-decoration: none;
+		}
+		td a:hover {
+			color: #005b81;
+			font-weight: bold;
+		}
+		.add-link {
+			display: block;
+			text-align: center;
+			margin-top: 20px;
+			font-size: 20px;
+			font-weight: bold;
+		}
+		.revenue-link {
+			display: block;
+			text-align: center;
+			margin-top: 10px;
+			font-size: 16px;
+		}
+	</style>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>	

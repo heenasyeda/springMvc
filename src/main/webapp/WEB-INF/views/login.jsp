@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,8 +70,8 @@ input[type=submit]:hover {
   <h1>Login Page</h1>
   <form name="submitForm" method="POST" action="loginCheck">
     <div>
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required>
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" required>
     </div>
     <div>
       <label for="password">Password:</label>

@@ -7,6 +7,9 @@ public class ServiceManagers {
 	private String Email;
 	private String Contact;
 	private int BranchID;
+	private String role;
+	private String password;
+	
 	
 	public ServiceManagers(int serviceManagerID, String name, String email, String contact, int branchID) {
 		super();
@@ -60,12 +63,32 @@ public class ServiceManagers {
 	public void setBranchID(int branchID) {
 		BranchID = branchID;
 	}
+	
+	
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 	@Override
 	public String toString() {
 		return "ServiceManagers [ServiceManagerID=" + ServiceManagerID + ", Name=" + Name + ", Email=" + Email
-				+ ", Contact=" + Contact + ", BranchID=" + BranchID + "]";
+				+ ", Contact=" + Contact + ", BranchID=" + BranchID + ", role=" + role + ", password=" + password + "]";
 	}
+
+	
 	
 	
 	

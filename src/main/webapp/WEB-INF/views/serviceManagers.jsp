@@ -3,47 +3,35 @@
  <%@page isELIgnored="false" %>
 
 
+
 <html>
 <head>
-<style>
+	<title>Bikes Assigned to Service Manager</title>
+	<style>
 		table {
 			border-collapse: collapse;
-			width: 70%;
-			margin: 0 auto;
+			width: 100%;
 		}
+
 		th, td {
-			padding: 10px;
-			text-align: center;
-			border: 1px solid black;
+			text-align: left;
+			padding: 8px;
+			border-bottom: 1px solid #ddd;
 		}
+
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+
 		th {
-			background-color: #008CBA;
-			color: #FFF;
+			background-color:#3ee9ef;
+			color: white;
 		}
-		td a {
-			color: #008CBA;
-			text-decoration: none;
-		}
-		td a:hover {
-			color: #005b81;
-			font-weight: bold;
-		}
-		.add-link {
-			display: block;
+
+		h1 {
 			text-align: center;
-			margin-top: 20px;
-			font-size: 20px;
-			font-weight: bold;
-		}
-		.revenue-link {
-			display: block;
-			text-align: center;
-			margin-top: 10px;
-			font-size: 16px;
 		}
 	</style>
-    <title>Bikes Assigned to Service Manager</title>
-</head>
 <body>
     <h1>Bikes Assigned to Service Manager: ${serviceManager.name}</h1>
     <table>
@@ -55,6 +43,8 @@
                 <th>Model</th>
                 <th>Service Details</th>
                 <th>Status</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -66,10 +56,15 @@
                     <td>${bike.model}</td>
                     <td>${bike.serviceDetails}</td>
                     <td>${bike.status}</td>
+                    
+                 <td><a href="editManager/${bike.bikeID}">Edit</a></td>
+                  <td><a href="deletebike/${bike.bikeID}">Delete</a></td>
                 </tr>
             </c:forEach>
+            
+            	
         </tbody>
     </table>
-      <a href="/BikeServiceManagements/login">Logout</a>
+    <a href="addManager">Add New bike</a>
 </body>
 </html>
