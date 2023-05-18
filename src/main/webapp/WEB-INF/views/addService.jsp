@@ -11,14 +11,12 @@
 			font-family: Arial, sans-serif;
 			background-color: #f2f2f2;
 		}
-
 		h1 {
 			text-align: center;
 			color: #333;
 			margin-top: 50px;
 			margin-bottom: 30px;
 		}
-
 		form {
 			margin: auto;
 			width: 400px;
@@ -27,20 +25,11 @@
 			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 			border-radius: 10px;
 		}
-
-		table {
-			width: 100%;
-			border-collapse: collapse;
-		}
-
-		td {
-			padding: 10px 0;
-		}
-
 		label {
-			font-weight: bold;
+			display: block;
+			margin-bottom: 5px;
+			color: #333;
 		}
-
 		input[type="text"] {
 			display: block;
 			width: 100%;
@@ -48,14 +37,12 @@
 			border: 1px solid #ccc;
 			border-radius: 4px;
 			font-size: 16px;
-			margin-top: 5px;
+			margin-bottom: 20px;
 			box-sizing: border-box;
 		}
-
 		input[type="submit"] {
 			display: block;
-			width: 100%;
-			background-color: #4CAF50;
+			background-color: #a8aca8;
 			color: #fff;
 			padding: 10px;
 			font-size: 16px;
@@ -63,12 +50,9 @@
 			border-radius: 4px;
 			cursor: pointer;
 			transition: background-color 0.3s;
-			margin-top: 20px;
-			box-sizing: border-box;
 		}
-
 		input[type="submit"]:hover {
-			background-color: #45a049;
+			background-color: #3e8e41;
 		}
 	</style>
 </head>
@@ -76,10 +60,10 @@
 	<h1>Add New Service Manager</h1>
 	<form:form method="post" action="/BikeServiceManagements/saveService">
 		<table>
-			<tr>
+			<%-- <tr>
 				<td><label for="serviceManagerID">ServiceManagerID:</label></td>
 				<td><form:input type="text" path="serviceManagerID" id="serviceManagerID" /></td>
-			</tr>
+			</tr> --%>
 			<tr>
 				<td><label for="name">Name:</label></td>
 				<td><form:input type="text" path="name" id="name" /></td>

@@ -19,11 +19,26 @@ public class RevenueDAO {
     @Autowired
     JdbcTemplate jdbcTemplate;
     
-    public void saveRevenue(Revenue revenue) {
+    
+    
+    public JdbcTemplate getJdbcTemplate() {
+		return jdbcTemplate;
+	}
+
+
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
+
+
+	public void saveRevenue(Revenue revenue) {
     	String sql="insert into Revenue(RevenueID,BranchID,RevenueAmount,TimePeriod,serviceManagerID) values (?,?,?,?,?)";
      jdbcTemplate.update(sql,revenue.getRevenueID(),revenue.getBranchID(),revenue.getRevenueAmount(),revenue.getTimePeriod(),revenue.getServiceManagerID());
     }
 
+    
+    
+    
     
     private class RevenueMapper implements RowMapper<Revenue> {
 	    public Revenue mapRow(ResultSet rs, int rowNum) throws SQLException {

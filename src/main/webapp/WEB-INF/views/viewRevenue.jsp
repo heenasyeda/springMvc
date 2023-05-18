@@ -50,7 +50,7 @@
 <body>
 <h1>Revenue</h1>
 <table border="2" width="70%" cellpadding="2">
-<tr><th>RevenueID</th><th>BranchID</th><th>RevenueAmount</th><th>TimePeriod</th><th>ServiceManagerID</th><th>Edit</th><th>Delete</th></tr>
+<tr><th>RevenueID</th><th>BranchID</th><th>RevenueAmount</th><th>TimePeriod</th><th>ServiceManagerID</th></tr>
 <c:forEach var="list" items="${list}">
 <tr>
 <td>${list.revenueID}</td>
@@ -59,15 +59,14 @@
 <td>${list.timePeriod}</td>
 <td>${list.serviceManagerID}</td>
 
-<td><a href="editRevenue/${list.revenueID}">Edit</a></td>
-<td><a href="deleteRevenue/${list.revenueID}">Delete</a></td>
+
 
 
 </tr>
 </c:forEach>
 
 </table>
-
+<a href="addRevenue">Add revenue</a>
 <br/>
 
 </body>

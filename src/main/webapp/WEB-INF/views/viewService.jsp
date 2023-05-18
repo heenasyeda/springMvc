@@ -91,6 +91,7 @@
 
 	<a href="addService" class="add-link">Add New Service Manager</a>
 	<a href="revenue" class="revenue-link">Check Revenue</a>
+	<a href="list" class="revenue-link">view Branch</a>
 	<a href="login" class="login-link"> Logout</a>
 </body>
 </html>

@@ -10,30 +10,42 @@
 	<style>
 		table {
 			border-collapse: collapse;
-			width: 100%;
+			width: 70%;
+			margin: 0 auto;
 		}
-
 		th, td {
-			text-align: left;
-			padding: 8px;
-			border-bottom: 1px solid #ddd;
-		}
-
-		tr:nth-child(even) {
-			background-color: #f2f2f2;
-		}
-
-		th {
-			background-color:#3ee9ef;
-			color: white;
-		}
-
-		h1 {
+			padding: 10px;
 			text-align: center;
+			border: 1px solid black;
+		}
+		th {
+			background-color: #008CBA;
+			color: #FFF;
+		}
+		td a {
+			color: #008CBA;
+			text-decoration: none;
+		}
+		td a:hover {
+			color: #005b81;
+			font-weight: bold;
+		}
+		.add-link {
+			display: block;
+			text-align: center;
+			margin-top: 20px;
+			font-size: 20px;
+			font-weight: bold;
+		}
+		.revenue-link {
+			display: block;
+			text-align: center;
+			margin-top: 10px;
+			font-size: 16px;
 		}
 	</style>
 <body>
-    <h1>Bikes Assigned to Service Manager: ${serviceManager.name}</h1>
+    <h1>Bikes Under  Service Manager: ${serviceManager.name}</h1>
     <table>
         <thead>
             <tr>
@@ -65,6 +77,7 @@
             	
         </tbody>
     </table>
-    <a href="addManager">Add New bike</a>
+    <a href="addManager">Add New bike</a></br></br>
+      <a href="viewRevenue">Add Revenue Details</a>
 </body>
 </html>

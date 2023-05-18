@@ -32,9 +32,9 @@ public class ServiceManagersDAO {
 
 	
 	public void addService(ServiceManagers serviceManagers) {
-		String sql="insert into ServiceManagers(ServiceManagerID,Name,Email,Contact,BranchID) values(?,?,?,?,?)";
-		jdbcTemplate.update(sql,serviceManagers.getServiceManagerID(),serviceManagers.getName(),serviceManagers.getEmail(),
-        serviceManagers.getContact(),serviceManagers.getBranchID());
+		String sql="insert into ServiceManagers(Name,Email,Contact,BranchID,role,password) values(?,?,?,?,?,?)";
+		jdbcTemplate.update(sql,serviceManagers.getName(),serviceManagers.getEmail(),
+        serviceManagers.getContact(),serviceManagers.getBranchID(),serviceManagers.getRole(),serviceManagers.getPassword());
 	}
 	
 	public List<ServiceManagers> getAllServiceManager(){
@@ -62,12 +62,12 @@ public class ServiceManagersDAO {
 	
 
 	  public void updateServiceManagerateBike(ServiceManagers serviceManagers) {
-	        String sql = "UPDATE serviceManagers SET  Name=?, Email=?, Contact=?, BranchID=?, role=?,password=?  WHERE ServiceManagerID=?";
+	        String sql = "UPDATE serviceManagers SET  Name=?, Email=?, Contact=?, BranchID=? WHERE ServiceManagerID=?";
 	        jdbcTemplate.update(sql,serviceManagers.getName(),serviceManagers.getEmail(),
-	    	        serviceManagers.getContact(),serviceManagers.getBranchID(),serviceManagers.getServiceManagerID(),serviceManagers.getRole(),serviceManagers.getPassword());
+	    	        serviceManagers.getContact(),serviceManagers.getBranchID(),serviceManagers.getServiceManagerID());
 	    }
 	    
-	  
+
 
 	    public int deleteServiceManagers(int ServiceManagerID) {
 	        String sql = "DELETE FROM ServiceManagers WHERE ServiceManagerID=?";

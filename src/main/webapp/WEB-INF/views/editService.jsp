@@ -7,50 +7,57 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Insert title here</title>
 <style>
-body {
-	font-family: Arial, sans-serif;
-}
-
-h1 {
-	margin-top: 20px;
-	margin-bottom: 30px;
-	text-align: center;
-}
-
-table {
-	width: 50%;
-	margin: 0 auto;
-}
-
-td {
-	padding: 10px;
-	text-align: left;
-}
-
-input[type="text"] {
-	width: 100%;
-	padding: 6px 10px;
-	border-radius: 4px;
-	border: 1px solid #ccc;
-	box-sizing: border-box;
-}
-
-input[type="submit"] {
-	padding: 8px 16px;
-	background-color: #4CAF50;
-	color: #fff;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-}
-
-input[type="submit"]:hover {
-	background-color: #45a049;
-}
-</style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+		h1 {
+			text-align: center;
+			color: #333;
+			margin-top: 50px;
+			margin-bottom: 30px;
+		}
+		form {
+			margin: auto;
+			width: 400px;
+			background-color: #fff;
+			padding: 20px;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+			border-radius: 10px;
+		}
+		label {
+			display: block;
+			margin-bottom: 5px;
+			color: #333;
+		}
+		input[type="text"] {
+			display: block;
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			font-size: 16px;
+			margin-bottom: 20px;
+			box-sizing: border-box;
+		}
+		input[type="submit"] {
+			display: block;
+			background-color: #a8aca8;
+			color: #fff;
+			padding: 10px;
+			font-size: 16px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+		}
+		input[type="submit"]:hover {
+			background-color: #3e8e41;
+		}
+	</style>
 </head>
 <body>
-	<h1>Add New Service Manager</h1>
+	<h1> Edit Service Manager</h1>
 
 	<form:form method="post"
 		action="/BikeServiceManagements/editsaveService">
@@ -75,18 +82,20 @@ input[type="submit"]:hover {
 				<td>BranchID :</td>
 				<td><form:input path="branchID" /></td>
 			</tr>
-			<tr>
-				<td></td>
-				<td><input type="submit" value="Save" /></td>
+				<tr>
+				<td><label for="password">Password:</label></td>
+				<td><form:input type="text" path="password" id="password" /></td>
 			</tr>
 			<tr>
 				<td><label for="role">Role:</label></td>
 				<td><form:input type="text" path="role" id="role" /></td>
 			</tr>
 			<tr>
-				<td><label for="password">Password:</label></td>
-				<td><form:input type="text" path="password" id="password" /></td>
+				<td></td>
+				<td><input type="submit" value="Save" /></td>
 			</tr>
+			
+		
 		</table>
 
 	</form:form>

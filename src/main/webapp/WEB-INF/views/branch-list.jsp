@@ -11,59 +11,42 @@
 <meta charset="UTF-8">
 <title>Branches List</title>
 <style>
-	body {
-		font-family: Arial, sans-serif;
-	}
-
-	h1 {
-		margin-top: 20px;
-		margin-bottom: 30px;
-		text-align: center;
-	}
-
-	table {
-		width: 70%;
-		border-collapse: collapse;
-		margin: 0 auto;
-	}
-
-	th, td {
-		padding: 10px;
-		text-align: left;
-	}
-
-	th {
-		background-color: #f2f2f2;
-	}
-
-	tr:nth-child(even) {
-		background-color: #f9f9f9;
-	}
-
-	a {
-		text-decoration: none;
-		color: #333;
-	}
-
-	a:hover {
-		color: #555;
-	}
-
-	.add-btn {
-		display: inline-block;
-		padding: 8px 12px;
-		background-color: #4CAF50;
-		color: #fff;
-		border: none;
-		border-radius: 4px;
-		cursor: pointer;
-		text-decoration: none;
-	}
-
-	.add-btn:hover {
-		background-color: #45a049;
-	}
-</style>
+		table {
+			border-collapse: collapse;
+			width: 70%;
+			margin: 0 auto;
+		}
+		th, td {
+			padding: 10px;
+			text-align: center;
+			border: 1px solid black;
+		}
+		th {
+			background-color: #008CBA;
+			color: #FFF;
+		}
+		td a {
+			color: #008CBA;
+			text-decoration: none;
+		}
+		td a:hover {
+			color: #005b81;
+			font-weight: bold;
+		}
+		.add-link {
+			display: block;
+			text-align: center;
+			margin-top: 20px;
+			font-size: 20px;
+			font-weight: bold;
+		}
+		.revenue-link {
+			display: block;
+			text-align: center;
+			margin-top: 10px;
+			font-size: 16px;
+		}
+	</style>
 </head>
 <body>
 	<h1>Branches List</h1>
