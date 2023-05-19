@@ -9,12 +9,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.valtech.dao.RevenueDAO;
-import com.valtech.model.Bikes;
 import com.valtech.model.Revenue;
 
 
 @Controller
-
 public class RevenueController {
 	
 	@Autowired
@@ -24,28 +22,40 @@ public class RevenueController {
 		
 	@RequestMapping("/serviceManagers/viewRevenue")
 	public String viewServiceManager(Model m) {
+		try {
 		List<Revenue> list = revenueDAO.getAllRevenue();
 		m.addAttribute("list", list);
 		return "viewRevenue";
-
+	}catch(Exception e){
+        return "error";
 	}
+  }
 	
 	@RequestMapping("/serviceManagers/saveRevenue")
 	public String addRevenue(@ModelAttribute("revenue") Revenue revenue) {
+		try {
 		revenueDAO.saveRevenue(revenue);
 		return "redirect:/serviceManagers/viewRevenue";
+	}catch(Exception e){
+        return "error";
 	}
+  }
 	
 	  @RequestMapping("/serviceManagers/addRevenue")    
-	    public String showform(Model m){    
+	    public String showform(Model m){   
+		  try {
 	        m.addAttribute("command", new Revenue());  
 	        return "addRevenue";   
-	    }
+	    }catch(Exception e){
+	        return "error";
+		}
+	  }
 	    
 
 	
 	@RequestMapping("/revenue")
 	public String viewRevenue(Model model) {
+		try {
 		
 		// Get revenue by branch
 		List<Object[]> revenueByBranch = revenueDAO.getRevenueByBranch();
@@ -60,7 +70,10 @@ public class RevenueController {
 		model.addAttribute("revenueByServiceManager", revenueByServiceManager);
 		
 		return "revenue";
+	}catch(Exception e){
+        return "error";
 	}
+  }
 
 
 }

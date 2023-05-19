@@ -58,7 +58,7 @@
 	</style>
 </head>
 <body>
-	<h1>Add New Bikes</h1>
+	<h1>Edit Bike Details</h1>
 
 	<form:form method="post" action="editsave">
 

@@ -77,7 +77,8 @@
             	
         </tbody>
     </table>
-    <a href="addManager">Add New bike</a></br></br>
-      <a href="viewRevenue">Add Revenue Details</a>
+    <a href="addManager/${serviceManagerId}">Add New bike</a></br></br>
+      <a href="viewRevenue">Add Revenue Details</a></br></br>
+      <a href="/BikeServiceManagements/login">Logout</a>
 </body>
 </html>

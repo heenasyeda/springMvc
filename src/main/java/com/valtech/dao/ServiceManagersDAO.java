@@ -9,22 +9,16 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Repository;
 
 import com.valtech.model.ServiceManagers;
-import com.valtech.model.User;
 
-@Repository
+
 public class ServiceManagersDAO {
 
 	
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 
-	
-	public JdbcTemplate getJdbcTemplate() {
-		return jdbcTemplate;
-	}
 
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;

@@ -1,8 +1,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+ <%@page isELIgnored="false" %>
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +53,7 @@
 			transition: background-color 0.3s;
 		}
 		input[type="submit"]:hover {
-			background-color: #9faa9f;
+			background-color: #3e8e41;
 		}
 	</style>
 </head>
@@ -80,9 +79,7 @@
 		<form:input path="serviceDetails" id="serviceDetails" />
 
 		<label for="serviceManagerID">Service Manager ID:</label>
-		<form:input path="serviceManagerID" id="serviceManagerID" />
-
-
+		<form:input path="serviceManagerID" id="serviceManagerID" value="${serviceManagerId}"/>
 
 		<label for="status">Status:</label>
 		<form:input path="status" id="status" />

@@ -7,11 +7,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Repository;
 
 import com.valtech.model.Revenue;
 
-@Repository
+
 
 public class RevenueDAO {
 	
@@ -20,12 +19,6 @@ public class RevenueDAO {
     JdbcTemplate jdbcTemplate;
     
     
-    
-    public JdbcTemplate getJdbcTemplate() {
-		return jdbcTemplate;
-	}
-
-
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
@@ -36,8 +29,6 @@ public class RevenueDAO {
      jdbcTemplate.update(sql,revenue.getRevenueID(),revenue.getBranchID(),revenue.getRevenueAmount(),revenue.getTimePeriod(),revenue.getServiceManagerID());
     }
 
-    
-    
     
     
     private class RevenueMapper implements RowMapper<Revenue> {
@@ -98,7 +89,6 @@ public class RevenueDAO {
     public int getTotalRevenue() {
         String sql = "SELECT SUM(RevenueAmount) FROM Revenue";
         Integer totalRevenue = jdbcTemplate.queryForObject(sql, Integer.class);
-        System.out.println(totalRevenue);
         return totalRevenue != null ? totalRevenue : 0;
     }
 

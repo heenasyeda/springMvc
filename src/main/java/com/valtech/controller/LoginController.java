@@ -4,7 +4,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -30,8 +29,7 @@ public class LoginController {
 	ServiceManagersDAO serviceManagersDAO;
 	
 	
-	@Autowired
-	JdbcTemplate jdbcTemplate;
+	
 	
 	 @RequestMapping(value = "/login", method = RequestMethod.GET)
 	  public String init(Model model) {
