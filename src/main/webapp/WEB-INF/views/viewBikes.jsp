@@ -41,6 +41,18 @@
 			margin-top: 10px;
 			font-size: 16px;
 		}
+		 .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ddd;
+            color: #333;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #ccc;
+        }
 	</style>
     <title>Bikes Assigned to Service Manager</title>
 </head>
@@ -70,6 +82,6 @@
             </c:forEach>
         </tbody>
     </table>
-      <a href="/BikeServiceManagements/login">Logout</a>
+         <a href="javascript:history.back()" class="back-button">Back</a>
 </body>
 </html>

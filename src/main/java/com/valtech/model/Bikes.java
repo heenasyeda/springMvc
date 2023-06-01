@@ -1,7 +1,6 @@
 package com.valtech.model;
 
 public class Bikes {
-
 	private int bikeID;
 	private String ownerName;
 	private String ownerContact;
@@ -9,13 +8,14 @@ public class Bikes {
 	private String serviceDetails;
 	private int serviceManagerID;
 	private String status;
+	
 	public Bikes() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
+	
 	public Bikes(int bikeID, String ownerName, String ownerContact, String model, String serviceDetails,
 			int serviceManagerID, String status) {
-		super();
+		
 		this.bikeID = bikeID;
 		this.ownerName = ownerName;
 		this.ownerContact = ownerContact;
@@ -66,20 +66,9 @@ public class Bikes {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	@Override
-	public String toString() {
-		return "Bikes [bikeID=" + bikeID + ", ownerName=" + ownerName + ", ownerContact=" + ownerContact + ", model="
-				+ model + ", serviceDetails=" + serviceDetails + ", serviceManagerID=" + serviceManagerID + ", status="
-				+ status + "]";
-	}
 	
 	
-
 	
-
-	
-
-
 
 
 

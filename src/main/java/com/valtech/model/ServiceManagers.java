@@ -65,10 +65,10 @@ public class ServiceManagers {
 	}
 	
 	
-
-	public String getRole() {
-		return role;
-	}
+	 public String getRole() {
+	        // Check if the role is null and return an empty string if it is
+	        return role != null ? role : "";
+	    }
 
 	public void setRole(String role) {
 		this.role = role;

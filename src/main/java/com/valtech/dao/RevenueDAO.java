@@ -18,11 +18,7 @@ public class RevenueDAO {
     @Autowired
     JdbcTemplate jdbcTemplate;
     
-    
-	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-	}
-
+   
 
 	public void saveRevenue(Revenue revenue) {
     	String sql="insert into Revenue(RevenueID,BranchID,RevenueAmount,TimePeriod,serviceManagerID) values (?,?,?,?,?)";

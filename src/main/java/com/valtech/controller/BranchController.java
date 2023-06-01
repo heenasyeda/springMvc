@@ -8,80 +8,50 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.valtech.dao.BranchesDAO;
 import com.valtech.model.Branches;
+import com.valtech.service.BranchService;
 
 @Controller
 public class BranchController {
 
 	@Autowired
-	BranchesDAO branchDAO;
+	BranchService branchService;
 
 	@RequestMapping("/list")
 	public String listBranches(Model model) {
-		try {
-		model.addAttribute("branches", branchDAO.getAllBranches());
-		return "branch-list";
-	}catch(Exception e){
-        return "error";
+		return branchService.listOfBranches(model);
+		
 	}
-  }
 
 	@RequestMapping(value = "/deletebranch/{id}", method = RequestMethod.GET)
 	public String delete(@PathVariable int id) {
-		try {
-		branchDAO.deleteBranches(id);
-		return "redirect:/list";
+		return branchService.deleteBranch(id);
+		
 
-	}catch(Exception e){
-        return "error";
 	}
-  }
 
 	@RequestMapping(value = "/editbranch/{id}")
 	public String edit(@PathVariable int id, Model m) {
-		try {
-		Branches branches = branchDAO.getBranchesById(id);
-		m.addAttribute("command", branches);
-		return "editbranch";
-
-	}catch(Exception e){
-        return "error";
-	}
-  }
+		return branchService.edit(id,m);
+     }
 
 	@RequestMapping(value = "/editsavebranch", method = RequestMethod.POST)
 	public String editsave(@ModelAttribute("branches") Branches branches) {
-		try {
-		branchDAO.updateBranches(branches);
-		return "redirect:/list";
-
-	}catch(Exception e){
-        return "error";
+		return branchService.editSave(branches);
+			
 	}
-  }
 
 	@RequestMapping(value = "/savebranch", method = RequestMethod.POST)
 	public String save(@ModelAttribute("branches") Branches branches) {
-		try {
-		branchDAO.addBranches(branches);
-		return "redirect:/list";// will redirect to view branch request mapping
-	}catch(Exception e){
-        return "error";
+		return branchService.save(branches);
+			
 	}
-  }
+		
 
 	@RequestMapping("/addbranch")
 	public String showform(Model m) {
-		try {
+		return branchService.showForm(m);
 		
-		
-		m.addAttribute("command", new Branches());
-		return "addbranch";
-
-	}catch(Exception e){
-        return "error";
 	}
-  }
 
 }

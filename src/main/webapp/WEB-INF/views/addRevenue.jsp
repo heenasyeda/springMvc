@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ <%@page isELIgnored="false" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,7 +75,7 @@
             <input type="text" name="timePeriod" id="timePeriod"><br>
 
             <label for="serviceManagerID">Service Manager ID:</label>
-            <input type="text" name="serviceManagerID" id="serviceManagerID"><br>
+            <input type="text" name="serviceManagerID" id="serviceManagerID" value="${serviceManagerID}"><br>
 
             <input type="submit" value="Save">
         </form>

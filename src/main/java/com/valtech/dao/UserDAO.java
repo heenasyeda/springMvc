@@ -19,9 +19,7 @@ public class UserDAO {
 	    
 	    
 
-	    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-	        this.jdbcTemplate = jdbcTemplate;
-	    }
+	    
 
 	    // Create a new user
 	    public void createUser(User user) {
@@ -76,14 +74,7 @@ public class UserDAO {
 	    	return user;
 
 	    	}
-			/*
-			 * public User findByEmail(String email) { String sql =
-			 * "SELECT * FROM user WHERE   userId = 5"; try { RowMapper<User> rowMapper =
-			 * new BeanPropertyRowMapper<User>(User.class); return
-			 * jdbcTemplate.queryForObject(sql, rowMapper, email); } catch
-			 * (EmptyResultDataAccessException e) { // TODO: handle exception return null; }
-			 * }
-			 */ 
+			 
 	    
 	    public User findByEmail(String email) {
 	    	try {

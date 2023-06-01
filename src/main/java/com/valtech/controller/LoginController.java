@@ -29,8 +29,6 @@ public class LoginController {
 	ServiceManagersDAO serviceManagersDAO;
 	
 	
-	
-	
 	 @RequestMapping(value = "/login", method = RequestMethod.GET)
 	  public String init(Model model) {
 	    model.addAttribute("User", "user");
@@ -70,7 +68,7 @@ public class LoginController {
 	    	                return "redirect:/viewService";
 	    	            } else {
 	    	                model.addAttribute("error", "Invalid Email or Password");
-	    	                return "login";
+	    	                 return "login";
 	    	            }
 	    	        } else {
 	    	            throw new EmptyResultDataAccessException(1);

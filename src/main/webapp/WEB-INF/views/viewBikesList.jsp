@@ -69,5 +69,6 @@
 
 <br/>
 <a href="addBikes">Add New bike</a>
+
 </body>
 </html>

@@ -43,9 +43,29 @@
 			margin-top: 10px;
 			font-size: 16px;
 		}
-	</style>
+	
+ 
+      .link-container {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    .link-container a {
+        display: block;
+        margin-bottom: 10px;
+        padding: 10px 20px;
+        background-color: #eaeaea;
+        color: #333;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+    .link-container a:hover {
+        background-color: #ccc;
+    }
+</style>
+
 <body>
-    <h1>Bikes Under  Service Manager: ${serviceManager.name}</h1>
+    <h1>Bikes Under  Service Manager: ${serviceManagers.name}</h1>
     <table>
         <thead>
             <tr>
@@ -77,8 +97,14 @@
             	
         </tbody>
     </table>
-    <a href="addManager/${serviceManagerId}">Add New bike</a></br></br>
-      <a href="viewRevenue">Add Revenue Details</a></br></br>
-      <a href="/BikeServiceManagements/login">Logout</a>
+    <br>
+   <div class="link-container">
+    <a href="addManager/${serviceManagerId}">Add New bike</a>
+    <br><br>
+    <a href="viewRevenue">Add Revenue Details</a>
+    <br><br>
+    <a href="/BikeServiceManagements/login">Logout</a>
+</div>
+
 </body>
 </html>
