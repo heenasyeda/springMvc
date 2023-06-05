@@ -8,8 +8,8 @@ import org.springframework.ui.Model;
 
 import com.valtech.dao.BikesDAO;
 import com.valtech.dao.ServiceManagersDAO;
-import com.valtech.model.Bikes;
-import com.valtech.model.ServiceManagers;
+import com.valtech.viewAndModel.BikesVm;
+import com.valtech.viewAndModel.ServiceManagersVm;
 
 @Service
 public class BikeServiceImpl implements BikeService {
@@ -24,7 +24,7 @@ public class BikeServiceImpl implements BikeService {
 
 	@Override
 	public String viewBikes(Model m) {
-		List<Bikes> list = bikesDAO.getAllBikes();
+		List<BikesVm> list = bikesDAO.getAllBikes();
 		m.addAttribute("list", list);
 		return "viewBikesList";
 	}
@@ -36,67 +36,67 @@ public class BikeServiceImpl implements BikeService {
 	}
 
 	@Override
-	public String deleteBikeForManager(int id, Bikes bikes) {
-		Bikes b = bikesDAO.getBikeById(id);
+	public String deleteBikeForManager(int id, BikesVm bikes) {
+		BikesVm b = bikesDAO.getBikeById(id);
 		bikesDAO.deleteBike(id);
 		return "redirect:/serviceManagers/" + b.getServiceManagerID();
 	}
 
 	@Override
 	public String editBike(int id, Model m) {
-		Bikes bikes = bikesDAO.getBikeById(id);
+		BikesVm bikes = bikesDAO.getBikeById(id);
 		m.addAttribute("command", bikes);
 		return "editBike";
 	}
 
 	@Override
 	public String editBikeForManager(int id, Model m) {
-		Bikes bikes= bikesDAO.getBikeById(id);
+		BikesVm bikes= bikesDAO.getBikeById(id);
 		m.addAttribute("command", bikes);
 		return "editManager";
 	}
 
 	@Override
-	public String editSave(Bikes bikes) {
+	public String editSave(BikesVm bikes) {
 		bikesDAO.updateBike(bikes);
 		return "redirect:/viewBikesList";
 	}
 
 	@Override
-	public String editSaveForManager(Bikes bikes) {
+	public String editSaveForManager(BikesVm bikes) {
 		bikesDAO.updateBike(bikes);
 		return "redirect:/serviceManagers/" + bikes.getServiceManagerID();
 	}
 
 	@Override
-	public String save(Bikes bikes) {
+	public String save(BikesVm bikes) {
 		bikesDAO.save(bikes);
 		return "redirect:/viewBikesList";// will redirect to view bike request mapping
 	}
 
 	@Override
-	public String saveBikesForManager(Bikes bikes) {
+	public String saveBikesForManager(BikesVm bikes) {
 		bikesDAO.save(bikes);
 		return "redirect:/serviceManagers/" + bikes.getServiceManagerID();
 	}
 
 	@Override
 	public String showForm(Model m) {
-		m.addAttribute("command", new Bikes());
+		m.addAttribute("command", new BikesVm());
 		return "addBikes";
 	}
 
 	@Override
 	public String showFormForManager(int serviceManagerId, Model m) {
-		m.addAttribute("command", new Bikes());
+		m.addAttribute("command", new BikesVm());
 		m.addAttribute("serviceManagerId", serviceManagerId);
 		return "addManager";
 	}
 
 	@Override
 	public String ViewBikesUnderServiceManager(int serviceManagerId, Model model) {
-		ServiceManagers serviceManagers = serviceManagersDAO.getServiceManagerById(serviceManagerId);
-		List<Bikes> bikes = bikesDAO.getBikesByServiceManagerId(serviceManagerId);
+		ServiceManagersVm serviceManagers = serviceManagersDAO.getServiceManagerById(serviceManagerId);
+		List<BikesVm> bikes = bikesDAO.getBikesByServiceManagerId(serviceManagerId);
 		model.addAttribute("serviceManagers", serviceManagers);
 		model.addAttribute("bikes", bikes);
 		return "viewBikes";
@@ -104,8 +104,8 @@ public class BikeServiceImpl implements BikeService {
 
 	@Override
 	public String viewBikesUnderServiceManagers(int serviceManagerId, Model model) {
-		ServiceManagers serviceManagers = serviceManagersDAO.getServiceManagerById(serviceManagerId);
-		List<Bikes> bikes = bikesDAO.getBikesByServiceManagerId(serviceManagerId);
+		ServiceManagersVm serviceManagers = serviceManagersDAO.getServiceManagerById(serviceManagerId);
+		List<BikesVm> bikes = bikesDAO.getBikesByServiceManagerId(serviceManagerId);
 		model.addAttribute("serviceManagers", serviceManagers);
 		model.addAttribute("serviceManagerId", serviceManagerId);
 		model.addAttribute("bikes", bikes);

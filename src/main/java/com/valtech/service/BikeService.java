@@ -2,7 +2,7 @@ package com.valtech.service;
 
 import org.springframework.ui.Model;
 
-import com.valtech.model.Bikes;
+import com.valtech.viewAndModel.BikesVm;
 
 public interface BikeService {
 
@@ -11,19 +11,17 @@ public interface BikeService {
 
 	String delete(int id);
 
-	String deleteBikeForManager(int id, Bikes bikes);
-
 	String editBike(int id, Model m);
 
 	String editBikeForManager(int id, Model m);
 
-	String editSave(Bikes bikes);
+	String editSave(BikesVm bikes);
 
-	String editSaveForManager(Bikes bikes);
+	String editSaveForManager(BikesVm bikes);
 
-	String save(Bikes bikes);
+	String save(BikesVm bikes);
 
-	String saveBikesForManager(Bikes bikes);
+	String saveBikesForManager(BikesVm bikes);
 
 	String showForm(Model m);
 
@@ -32,4 +30,6 @@ public interface BikeService {
 	String ViewBikesUnderServiceManager(int serviceManagerId, Model model);
 
 	String viewBikesUnderServiceManagers(int serviceManagerId, Model model);
+
+	String deleteBikeForManager(int id, BikesVm bikes);
 }

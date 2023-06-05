@@ -8,7 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
-import com.valtech.model.Revenue;
+
+import com.valtech.viewAndModel.RevenueVm;
 
 
 
@@ -20,16 +21,16 @@ public class RevenueDAO {
     
    
 
-	public void saveRevenue(Revenue revenue) {
+	public void saveRevenue(RevenueVm revenue) {
     	String sql="insert into Revenue(RevenueID,BranchID,RevenueAmount,TimePeriod,serviceManagerID) values (?,?,?,?,?)";
      jdbcTemplate.update(sql,revenue.getRevenueID(),revenue.getBranchID(),revenue.getRevenueAmount(),revenue.getTimePeriod(),revenue.getServiceManagerID());
     }
 
     
     
-    private class RevenueMapper implements RowMapper<Revenue> {
-	    public Revenue mapRow(ResultSet rs, int rowNum) throws SQLException {
-	    	Revenue revenue = new Revenue();
+    private class RevenueMapper implements RowMapper<RevenueVm> {
+	    public RevenueVm mapRow(ResultSet rs, int rowNum) throws SQLException {
+	    	RevenueVm revenue = new RevenueVm();
 	    	revenue.setRevenueID(rs.getInt(1));
 	    	revenue.setBranchID(rs.getInt(2));
 	    	revenue.setRevenueAmount(rs.getInt(3));
@@ -41,7 +42,7 @@ public class RevenueDAO {
     }
     
     
-    public List<Revenue> getAllRevenue() {
+    public List<RevenueVm> getAllRevenue() {
 	    String sql = "SELECT * FROM Revenue";
 	    return jdbcTemplate.query(sql, new RevenueMapper());
 	}

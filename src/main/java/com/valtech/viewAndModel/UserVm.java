@@ -1,13 +1,13 @@
-package com.valtech.model;
+package com.valtech.viewAndModel;
 
-public class User {
+public class UserVm {
 	private int userId;
 	private String userName;
 	private String password;
 	private String email;
 	private String role;
 	
-	public User(int userId, String username, String password, String email, String role) {
+	public UserVm(int userId, String username, String password, String email, String role) {
 		super();
 		this.userId = userId;
 		this.userName = username;
@@ -16,7 +16,7 @@ public class User {
 		this.role = role;
 	}
 
-	public User() {
+	public UserVm() {
 		super();
 	}
 
@@ -66,7 +66,9 @@ public class User {
 		return "User [userId=" + userId + ", username=" + userName + ", password=" + password + ", email=" + email
 				+ ", role=" + role + "]";
 	}
-	
-	
+		
 
 }
+
+
+

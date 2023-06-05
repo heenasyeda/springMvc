@@ -8,7 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
-import com.valtech.model.Branches;
+
+import com.valtech.viewAndModel.BranchesVm;
 
 
 
@@ -23,9 +24,9 @@ public class BranchesDAO {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
-	private class BranchesMapper implements RowMapper<Branches> {
-	    public Branches mapRow(ResultSet rs, int rowNum) throws SQLException {
-	        Branches branches = new Branches();
+	private class BranchesMapper implements RowMapper<BranchesVm> {
+	    public BranchesVm mapRow(ResultSet rs, int rowNum) throws SQLException {
+	        BranchesVm branches = new BranchesVm();
 	        branches.setBranchID(rs.getInt("BranchID"));
 	        branches.setName(rs.getString("Name"));
 	        branches.setAddress(rs.getString("Address"));
@@ -33,19 +34,19 @@ public class BranchesDAO {
 	        return branches;
 	    }
 	}
-	public void addBranches(Branches branches) {
+	public void addBranches(BranchesVm branches) {
 	    String sql = "INSERT INTO Branches (BranchID, Name, Address, Contact) values (?, ?, ?, ?)";
 	    jdbcTemplate.update(sql, branches.getBranchID(), branches.getName(), branches.getAddress(), branches.getContact());
 	}
-	public Branches getBranchesById(int branchID) {
+	public BranchesVm getBranchesById(int branchID) {
 	    String sql = "SELECT * FROM Branches WHERE BranchID = ?";
 	    return jdbcTemplate.queryForObject(sql, new Object[]{branchID}, new BranchesMapper());
 	}
-	public List<Branches> getAllBranches() {
+	public List<BranchesVm> getAllBranches() {
 	    String sql = "SELECT * FROM Branches";
 	    return jdbcTemplate.query(sql, new BranchesMapper());
 	}
-	public void updateBranches(Branches branches) {
+	public void updateBranches(BranchesVm branches) {
 		System.out.println(branches);
 	    String sql = "UPDATE Branches SET Name = ?, Address = ?, Contact = ? WHERE BranchID = ?";
 	    jdbcTemplate.update(sql, branches.getName(), branches.getAddress(), branches.getContact(), branches.getBranchID());

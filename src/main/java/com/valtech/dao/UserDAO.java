@@ -10,7 +10,8 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
-import com.valtech.model.User;
+import com.valtech.viewAndModel.UserVm;
+
 
 public class UserDAO {
 	
@@ -22,23 +23,23 @@ public class UserDAO {
 	    
 
 	    // Create a new user
-	    public void createUser(User user) {
+	    public void createUser(UserVm user) {
 	        String sql = "INSERT INTO user (userName, password, email, role) VALUES ( ?, ?, ?,?)";
 	        jdbcTemplate.update(sql, user.getUsername(), user.getPassword(), user.getEmail(), user.getRole());
 	    }
         
 	        
 	        //save method
-	        public int save(User user) {
+	        public int save(UserVm user) {
 	            String sql = "INSERT INTO user (userId,userName, password, email, role) VALUES (?, ?, ?, ?,?)";
 	            return jdbcTemplate.update(sql,user.getUserId(), user.getUsername(), user.getPassword(), user.getEmail(), user.getRole());
 	        }
 	        
-	        public List<User> getUsers(){
+	        public List<UserVm> getUsers(){
 	        	
-				return jdbcTemplate.query("select * from user ", new RowMapper<User>(){
-					public User mapRow(ResultSet rs,int row) throws SQLException{
-						User li= new User();
+				return jdbcTemplate.query("select * from user ", new RowMapper<UserVm>(){
+					public UserVm mapRow(ResultSet rs,int row) throws SQLException{
+						UserVm li= new UserVm();
 						li.setUserId(rs.getInt(1));
 						li.setUsername(rs.getString(2));
 			            li.setPassword(rs.getString(3));
@@ -51,7 +52,7 @@ public class UserDAO {
 	        }
 	    
 	    // Update a user
-	    public void updateUser(User user) {
+	    public void updateUser(UserVm user) {
 	        String sql = "UPDATE user SET userName = ?, password = ?, email = ?, role = ? WHERE userId = ?";
 	        jdbcTemplate.update(sql, user.getUsername(), user.getPassword(), user.getEmail(), user.getRole(), user.getUserId());
 	    }
@@ -62,24 +63,24 @@ public class UserDAO {
 	        jdbcTemplate.update(sql, userId);
 	    }
 	 
-	    public User getUserbyId(int userId) {
+	    public UserVm getUserbyId(int userId) {
 	    	String sql = "SELECT * FROM user WHERE userId = ?";
-	    	User user = jdbcTemplate.queryForObject(sql, new Object[] { userId }, new BeanPropertyRowMapper<User>(User.class));
+	    	UserVm user = jdbcTemplate.queryForObject(sql, new Object[] { userId }, new BeanPropertyRowMapper<UserVm>(UserVm.class));
 	    	return user;
 
 	    	}
-	    public User getUserbyUserName(String username) {
+	    public UserVm getUserbyUserName(String username) {
 	    	String sql = "SELECT * FROM user WHERE username = ?";
-	    	User user = jdbcTemplate.queryForObject(sql, new Object[] { username }, new BeanPropertyRowMapper<User>(User.class));
+	    	UserVm user = jdbcTemplate.queryForObject(sql, new Object[] { username }, new BeanPropertyRowMapper<UserVm>(UserVm.class));
 	    	return user;
 
 	    	}
 			 
 	    
-	    public User findByEmail(String email) {
+	    public UserVm findByEmail(String email) {
 	    	try {
 	        String sql = "SELECT * FROM User WHERE Email = ?";
-	        RowMapper<User> rowMapper = new BeanPropertyRowMapper<User>(User.class);
+	        RowMapper<UserVm> rowMapper = new BeanPropertyRowMapper<UserVm>(UserVm.class);
 	        return jdbcTemplate.queryForObject(sql, rowMapper, email);
 	    	}
 	    	catch (EmptyResultDataAccessException e) {
@@ -88,9 +89,9 @@ public class UserDAO {
 			}
 	    } 
 	    
-	    public User findUserByMailAndPassword(String email,String password) {
+	    public UserVm findUserByMailAndPassword(String email,String password) {
 	    	 String sql="select * from user where email=? AND password=?";
-	    	 RowMapper<User> rowMapper = new BeanPropertyRowMapper<User>(User.class);
+	    	 RowMapper<UserVm> rowMapper = new BeanPropertyRowMapper<UserVm>(UserVm.class);
 	    	 return jdbcTemplate.queryForObject(sql, rowMapper,email,password);
 	    	
 

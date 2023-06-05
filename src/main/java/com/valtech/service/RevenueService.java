@@ -2,16 +2,16 @@ package com.valtech.service;
 
 import org.springframework.ui.Model;
 
-import com.valtech.model.Revenue;
+import com.valtech.viewAndModel.RevenueVm;
 
 public interface RevenueService {
 
 	String viewRevenueService(Model m);
 
-	String addRevenues(Revenue revenue);
+	String addRevenues(RevenueVm revenue);
 
 	String ShowForm(int serviceManagerId, Model m);
 
-	String viewRevenue(Model model);
+	String viewRevenue(Model model); 
 
 }

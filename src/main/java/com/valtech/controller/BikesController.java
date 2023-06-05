@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.valtech.model.Bikes;
+
 import com.valtech.service.BikeService;
+import com.valtech.viewAndModel.BikesVm;
 
 @Controller
 public class BikesController {
@@ -34,7 +35,7 @@ public class BikesController {
 	}
 
 	@RequestMapping(value = "serviceManagers/deletebike/{id}", method = RequestMethod.GET)
-	public String delete1(@PathVariable int id, @ModelAttribute("bikes") Bikes bikes) {
+	public String delete1(@PathVariable int id, @ModelAttribute("bikes") BikesVm bikes) {
 		return bikeService.deleteBikeForManager(id,bikes);
 		
 	}
@@ -52,27 +53,27 @@ public class BikesController {
 	}
 
 	@RequestMapping(value = "/editsave", method = RequestMethod.POST)
-	public String editsave(@ModelAttribute("bikes") Bikes bikes) {
+	public String editsave(@ModelAttribute("bikes") BikesVm bikes) {
 		return bikeService.editSave(bikes);
 		
 	}
 
 	
 	@RequestMapping(value = "/serviceManagers/editManager/editsave", method = RequestMethod.POST)
-	public String editsave1(@ModelAttribute("bikes") Bikes bikes) {
+	public String editsave1(@ModelAttribute("bikes") BikesVm bikes) {
 		return bikeService.editSaveForManager(bikes);
 		
 	}
 
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String save(@ModelAttribute("bikes") Bikes bikes) {
+	public String save(@ModelAttribute("bikes") BikesVm bikes) {
 		return bikeService.save(bikes);
 		
 	}
 
 	@RequestMapping(value = "/serviceManagers/addManager/saveManager", method = RequestMethod.POST)
-	public String save1(@ModelAttribute("bikes") Bikes bikes) {
+	public String save1(@ModelAttribute("bikes") BikesVm bikes) {
 		return bikeService.saveBikesForManager(bikes);	
 	}
 	

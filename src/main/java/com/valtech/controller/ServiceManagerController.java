@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.valtech.model.ServiceManagers;
+
 import com.valtech.service.ServiceManager;
+import com.valtech.viewAndModel.ServiceManagersVm;
 
 @Controller
 public class ServiceManagerController {
@@ -51,12 +52,12 @@ public class ServiceManagerController {
 	}
 
 	@RequestMapping(value = "/editsaveService", method = RequestMethod.POST)
-	public String editsave(@ModelAttribute("serviceManagers") ServiceManagers serviceManagers) {
+	public String editsave(@ModelAttribute("serviceManagers") ServiceManagersVm serviceManagers) {
 		return serviceManager.editSaveForManager(serviceManagers);		
 	}
 
 	@RequestMapping(value = "/saveService", method = RequestMethod.POST)
-	public String save(@ModelAttribute("serviceManagers") ServiceManagers serviceManagers) {
+	public String save(@ModelAttribute("serviceManagers") ServiceManagersVm serviceManagers) {
 		return serviceManager.save(serviceManagers);
 	
 	}

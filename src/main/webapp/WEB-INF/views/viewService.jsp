@@ -121,6 +121,21 @@ td a:hover {
 .revenue-link.list-link:hover {
   background-color: #1e7e34;
 }
+   .sort-option {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #eaeaea;
+        color: #333;
+        text-decoration: none;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .sort-option:hover {
+        background-color: #ccc;
+    }
 </style>
 </head>
 <body>
@@ -136,9 +151,12 @@ td a:hover {
   <button type="submit">Search</button>
   
 </form>
-<a href="ascending">Asc</a>	
-<a href="decending">dsc</a>
-
+<div class="sort-option">
+    <a href="ascending">Asc</a>
+</div>
+<div class="sort-option">
+    <a href="decending">Desc</a>
+</div>
     </br>
 	<table>
 		<thead>

@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.valtech.dao.BranchesDAO;
-import com.valtech.model.Branches;
+
+import com.valtech.viewAndModel.BranchesVm;
+
 
 @Service
 public class BranchServiceImpl implements BranchService {
@@ -27,28 +29,28 @@ public class BranchServiceImpl implements BranchService {
 
 	@Override
 	public String edit(int id, Model m) {
-		Branches branches = branchesDAO.getBranchesById(id);
+		BranchesVm branches = branchesDAO.getBranchesById(id);
 		m.addAttribute("command", branches);
 		return "editbranch";
 
 	}
 
 	@Override
-	public String editSave(Branches branches) {
+	public String editSave(BranchesVm branches) {
 		branchesDAO.updateBranches(branches);
 		return "redirect:/list";
 
 	}
 
 	@Override
-	public String save(Branches branches) {
+	public String save(BranchesVm branches) {
 		branchesDAO.addBranches(branches);
 		return "redirect:/list";// will redirect to view branch request mapping
 	}
 
 	@Override
 	public String showForm(Model m) {
-		m.addAttribute("command", new Branches());
+		m.addAttribute("command", new BranchesVm());
 		return "addbranch";
 	}
 	

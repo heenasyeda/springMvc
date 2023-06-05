@@ -7,7 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.valtech.dao.RevenueDAO;
-import com.valtech.model.Revenue;
+import com.valtech.viewAndModel.RevenueVm;
+
 
 @Service
 public class RevenueServiceImpl implements RevenueService  {
@@ -19,7 +20,7 @@ public class RevenueServiceImpl implements RevenueService  {
 	@Override
 	public String viewRevenueService(Model m) {
 		try {
-			List<Revenue> list = revenueDAO.getAllRevenue();
+			List<RevenueVm> list = revenueDAO.getAllRevenue();
 			m.addAttribute("list", list);
 			return "viewRevenue";
 		}catch(Exception e){
@@ -28,7 +29,7 @@ public class RevenueServiceImpl implements RevenueService  {
 	}
 
 	@Override
-	public String addRevenues(Revenue revenue) {
+	public String addRevenues(RevenueVm revenue) {
 		try {
 			revenueDAO.saveRevenue(revenue);
 			return "redirect:/serviceManagers/viewRevenue";
@@ -40,7 +41,7 @@ public class RevenueServiceImpl implements RevenueService  {
 	@Override
 	public String ShowForm(int serviceManagerId, Model m) {
 		 try {
-		        m.addAttribute("command", new Revenue());
+		        m.addAttribute("command", new RevenueVm());
 		        m.addAttribute("serviceManagerId", serviceManagerId);
 		        
 		        return "addRevenue";   

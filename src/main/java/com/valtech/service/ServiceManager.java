@@ -2,7 +2,7 @@ package com.valtech.service;
 
 import org.springframework.ui.Model;
 
-import com.valtech.model.ServiceManagers;
+import com.valtech.viewAndModel.ServiceManagersVm;
 
 public interface ServiceManager {
 
@@ -12,9 +12,9 @@ public interface ServiceManager {
 
 	String editManager(int id, Model m);
 
-	String editSaveForManager(ServiceManagers serviceManagers);
+	String editSaveForManager(ServiceManagersVm serviceManagers);
 
-	String save(ServiceManagers serviceManagers);
+	String save(ServiceManagersVm serviceManagers);
 
 	String showForm(Model m);
 

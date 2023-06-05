@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.valtech.model.Revenue;
 import com.valtech.service.RevenueService;
+import com.valtech.viewAndModel.RevenueVm;
 
 
 @Controller
@@ -25,7 +25,7 @@ public class RevenueController {
   }
 	
 	@RequestMapping("/serviceManagers/saveRevenue")
-	public String addRevenue(@ModelAttribute("revenue") Revenue revenue) {
+	public String addRevenue(@ModelAttribute("revenue") RevenueVm revenue) {
 		return revenueService.addRevenues(revenue);
 		
   }

@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.valtech.model.Branches;
+
 import com.valtech.service.BranchService;
+import com.valtech.viewAndModel.BranchesVm;
 
 @Controller
 public class BranchController {
@@ -36,13 +37,13 @@ public class BranchController {
      }
 
 	@RequestMapping(value = "/editsavebranch", method = RequestMethod.POST)
-	public String editsave(@ModelAttribute("branches") Branches branches) {
+	public String editsave(@ModelAttribute("branches") BranchesVm branches) {
 		return branchService.editSave(branches);
 			
 	}
 
 	@RequestMapping(value = "/savebranch", method = RequestMethod.POST)
-	public String save(@ModelAttribute("branches") Branches branches) {
+	public String save(@ModelAttribute("branches") BranchesVm branches) {
 		return branchService.save(branches);
 			
 	}
